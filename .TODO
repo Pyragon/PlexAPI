@@ -1,0 +1,40 @@
+General API:
+  ☐ Figure out error with authenticating.
+
+Now Playing:
+  ☐ Get titles being played on any device
+  ☐ Return as arraylist<Video>
+  ☐ Return the current queue for a user as well
+
+Episodes:
+  ☐ Load information about episode
+  ☐ Try and get playcount for said episode
+  ☐ Link to thumbnail URL
+  ☐ Return season object
+  ☐ Return show object
+  ☐ Get rating
+
+Seasons:
+  ☐ Load information about season
+  ☐ Return arraylist of episodes for season
+  ☐ Return show object
+  ☐ Link to thumbnail url
+  ☐ Get rating
+
+Shows:
+  ☐ Load information about show
+  ☐ Retun arraylist of seasons for show
+  ☐ Link to thumbnail url
+  ☐ Get rating
+
+Playback:
+  ☐ Play certain title
+  ☐ Play on any connected device
+  ☐ Play season/show in queue
+  ☐ Create queue and play said queue
+  ☐ Skip to next/previous episode
+  ☐ Fast Forward/Rewind
+  ☐ Set position
+
+Users:
+  ☐ List users logged in (from devices.xml)
