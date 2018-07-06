@@ -2,13 +2,13 @@ General API:
   ☐ Figure out error with authenticating.
 
 Now Playing:
-  ☐ Get titles being played on any device
-  ☐ Return as arraylist<Video>
+  ✔ Get titles being played on any device @done(2018-07-04 15:25) @project(Now Playing)
+  ✔ Return as arraylist<Video> @done(2018-07-04 15:25) @project(Now Playing)
   ☐ Return the current queue for a user as well
 
 Episodes:
-  ☐ Load information about episode
-  ☐ Try and get playcount for said episode
+  ✔ Load information about episode @done(2018-07-04 15:25) @project(Episodes)
+  ✔ Try and get playcount for said episode @done(2018-07-04 15:25) @project(Episodes)
   ☐ Link to thumbnail URL
   ☐ Return season object
   ☐ Return show object

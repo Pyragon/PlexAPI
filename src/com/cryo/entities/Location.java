@@ -3,10 +3,9 @@ package com.cryo.entities;
 import lombok.Data;
 
 @Data
-public class User {
+public class Location {
 	
-	private String thumb;
+	private String path;
 	private int id;
-	private String title;
 
 }

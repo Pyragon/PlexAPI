@@ -3,10 +3,11 @@ package com.cryo.entities;
 import lombok.Data;
 
 @Data
-public class User {
+public class Similar {
 	
-	private String thumb;
+	private String tag;
 	private int id;
-	private String title;
+	
+	private String filter;
 
 }

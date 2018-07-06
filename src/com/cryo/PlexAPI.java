@@ -1,15 +1,16 @@
 package com.cryo;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Properties;
 
-import com.cryo.io.PlexConnection;
-import com.google.gson.Gson;
+import com.cryo.entities.Libraries;
+import com.cryo.entities.LibraryContainer;
+import com.cryo.entities.PlexInfo;
+import com.cryo.entities.TVShow;
+import com.cryo.entities.Video;
 
 import lombok.Getter;
 
@@ -18,26 +19,73 @@ public class PlexAPI {
 	private static @Getter String authToken;
 	
 	private static @Getter Properties properties;
+	private static @Getter Properties mavenProperties;
 	
-	public static void main(String[] args) {
-		PlexAPI api = new PlexAPI();
-	}
+	private static @Getter String URL;
 	
-	private PlexAPI() {
-		loadProperties();
-	}
-
-	public static void loadProperties() {
-		File file = new File("props.json");
+	private static @Getter PlexAPI instance;
+	
+	public PlexAPI(Properties prop) {
+		properties = prop;
+		mavenProperties = new Properties();
+		File file = new File("target/classes/project.properties");
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(file));
-			String json = reader.readLine();
-			Gson gson = new Gson();
-			properties = gson.fromJson(json, Properties.class);
-			reader.close();
+			mavenProperties.load(new FileInputStream(file));
 		} catch (IOException e) {
 			e.printStackTrace();
+			mavenProperties.put("version", "1.0.0");
 		}
+		URL = "http://"+properties.getProperty("host", "127.0.0.1")+":"+properties.getProperty("port", "32400");
+	}
+	
+	public TVShow getTVShow(int id) {
+		Object obj = PlexEndpoints.loadEndpoint(PlexEndpoints.GET_SHOW, Integer.toString(id));
+		if(obj == null) {
+			System.out.println("Unable to load tv show.");
+			return null;
+		}
+		TVShow show = (TVShow) obj;
+		show.loadSeasons();
+		return show;
+	}
+	
+	public LibraryContainer getLibrary(int id) {
+		Object obj = PlexEndpoints.loadEndpoint(PlexEndpoints.LIBRARY_CONTAINER, id+"/all");
+		if(obj == null) {
+			System.out.println("Unable to load library.");
+			return null;
+		}
+		return (LibraryContainer) obj;
+	}
+	
+	public Libraries getLibraries() {
+		Object obj = PlexEndpoints.loadEndpoint(PlexEndpoints.LIBRARIES);
+		if(obj == null) {
+			System.out.println("Failed to load libraries.");
+			return null;
+		}
+		return (Libraries) obj;
+	}
+	
+	public PlexInfo getPlexInfo() {
+		Object obj = PlexEndpoints.loadEndpoint(PlexEndpoints.INDEX);
+		if(obj == null) {
+			System.out.println("Failed to load plex info.");
+			return null;
+		}
+		return (PlexInfo) obj;
+	}
+	
+	public ArrayList<Video> getNowPlaying() {
+		ArrayList<Video> videos = new ArrayList<>();
+		Object obj = PlexEndpoints.loadEndpoint(PlexEndpoints.NOW_PLAYING);
+		if(obj == null) {
+			System.out.println("Failed to load Now Playing data.");
+			return null;
+		}
+		Video video = (Video) obj;
+		videos.add(video);
+		return videos;
 	}
 
 }
