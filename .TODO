@@ -2,30 +2,19 @@ General API:
   ☐ Figure out error with authenticating.
 
 Now Playing:
-  ✔ Get titles being played on any device @done(2018-07-04 15:25) @project(Now Playing)
-  ✔ Return as arraylist<Video> @done(2018-07-04 15:25) @project(Now Playing)
   ☐ Return the current queue for a user as well
 
 Episodes:
-  ✔ Load information about episode @done(2018-07-04 15:25) @project(Episodes)
-  ✔ Try and get playcount for said episode @done(2018-07-04 15:25) @project(Episodes)
   ☐ Link to thumbnail URL
   ☐ Return season object
   ☐ Return show object
-  ☐ Get rating
 
 Seasons:
-  ☐ Load information about season
-  ☐ Return arraylist of episodes for season
   ☐ Return show object
   ☐ Link to thumbnail url
-  ☐ Get rating
 
 Shows:
-  ☐ Load information about show
-  ☐ Retun arraylist of seasons for show
   ☐ Link to thumbnail url
-  ☐ Get rating
 
 Playback:
   ☐ Play certain title
@@ -38,3 +27,17 @@ Playback:
 
 Users:
   ☐ List users logged in (from devices.xml)
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+  ✔ Get titles being played on any device @done(2018-07-04 15:25) @project(Now Playing)
+  ✔ Return as arraylist<Video> @done(2018-07-04 15:25) @project(Now Playing)
+  ✔ Load information about episode @done(2018-07-04 15:25) @project(Episodes)
+  ✔ Try and get playcount for said episode @done(2018-07-04 15:25) @project(Episodes)
+  ✔ Get rating @done(2018-07-05 23:41) @project(Episodes)
+  ✔ Load information about season @done(2018-07-05 23:41) @project(Seasons)
+  ✔ Return arraylist of episodes for season @done(2018-07-05 23:41) @project(Seasons)
+  ✔ Get rating @done(2018-07-05 23:41) @project(Seasons)
+  ✔ Load information about show @done(2018-07-05 23:41) @project(Shows)
+  ✔ Retun arraylist of seasons for show @done(2018-07-05 23:41) @project(Shows)
+  ✔ Get rating @done(2018-07-05 23:41) @project(Shows)
