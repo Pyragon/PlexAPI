@@ -36,6 +36,7 @@ public class PlexAPI {
 			mavenProperties.put("version", "1.0.0");
 		}
 		URL = "http://"+properties.getProperty("host", "127.0.0.1")+":"+properties.getProperty("port", "32400");
+		instance = this;
 	}
 	
 	public TVShow getTVShow(int id) {
