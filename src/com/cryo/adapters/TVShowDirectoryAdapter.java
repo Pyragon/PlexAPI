@@ -15,12 +15,15 @@ public class TVShowDirectoryAdapter implements JsonDeserializer<List<Season>> {
 
 	@Override
 	public List<Season> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-		List<Season> seasons = new ArrayList<Season>();
-		for(JsonElement e : json.getAsJsonArray()) {
-			JsonObject obj = e.getAsJsonObject();
-			if(!obj.has("ratingKey")) continue;
-			seasons.add((Season) context.deserialize(obj, Season.class));
-		}
+		List<Season> seasons = new ArrayList<>();
+		if(json.isJsonArray()) {
+			for (JsonElement e : json.getAsJsonArray()) {
+				JsonObject obj = e.getAsJsonObject();
+				if (!obj.has("ratingKey")) continue;
+				seasons.add(context.deserialize(obj, Season.class));
+			}
+		} else
+			seasons.add(context.deserialize(json, Season.class));
 		return seasons;
 	}
 

@@ -17,10 +17,10 @@ public class DirectorTypeAdapter implements JsonDeserializer<List<Director>> {
 		List<Director> directors = new ArrayList<>();
 		if(json.isJsonArray()) {
 			for(JsonElement e : json.getAsJsonArray()) {
-				directors.add((Director) context.deserialize(e, Director.class));
+				directors.add(context.deserialize(e, Director.class));
 			}
 		} else
-			directors.add((Director) context.deserialize(json, Director.class));
+			directors.add(context.deserialize(json, Director.class));
 		return directors;
 	}
 
