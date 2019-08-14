@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class Season {
-	
+
 	private String summary;
 	private int parentIndex;
 	private String art;
@@ -37,7 +37,7 @@ public class Season {
 			return;
 		EpisodeList list = (EpisodeList) obj;
 		for(Episode episode : list.getEpisodes()) {
-			episodes.put(episode.getIndex(), episode);
+			episodes.put(episode.getRatingKey(), episode);
 		}
 	}
 

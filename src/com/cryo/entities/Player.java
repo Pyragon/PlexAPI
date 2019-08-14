@@ -20,7 +20,7 @@ public class Player {
 	private String vendor;
 	private int platformVersion;
 	private String model;
-	private String paused;
+	private String state;
 	private String device;
 
 }
