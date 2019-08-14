@@ -2,6 +2,7 @@ package com.cryo.entities;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import com.cryo.PlexEndpoints;
 import com.cryo.adapters.TVShowDirectoryAdapter;
@@ -52,6 +53,14 @@ public class TVShow {
 	private List<Genre> genres;
 	
 	private HashMap<Integer, Season> seasons;
+
+	public Episode getEpisode(int key) {
+		for(Season season : seasons.values()) {
+			Episode episode = season.getEpisodes().get(key);
+			if(episode != null) return episode;
+		}
+		return null;
+	}
 	
 	public void loadSeasons() {
 		seasons = new HashMap<>();
@@ -62,7 +71,7 @@ public class TVShow {
 		SeasonList list = (SeasonList) obj;
 		for(Season season : list.getSeasons()) {
 			season.loadEpisodes();
-			seasons.put(season.getIndex(), season);
+			seasons.put(season.getRatingKey(), season);
 		}
 	}
 
